@@ -1,0 +1,74 @@
+<title> JalTantra </title>
+
+<h2> JalTantra </h2>
+A System for Design and Optimization of Water Distribution Networks 
+
+<h2 id="systemlinks"> System Links </h2>
+JalTantra System: <a href="https://www.cse.iitb.ac.in/jaltantra/system.html" target="_blank"> https://www.cse.iitb.ac.in/jaltantra/system.html </a><br>
+Local version for Windows: <a href="/jaltantra/Local_JalTantra(2.2.2.0).zip"> Local_JalTantra(2.2.2.0).zip </a> <br>
+Detailed usage instructions: <a href="/jaltantra/usage.html" target="_blank"> Link </a> <br>
+JalTantra Video Tutorial: <br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/605FCrPr8P4" frameborder="0" allowfullscreen></iframe>
+
+<h2> Installation instructions for local version </h2>
+Extract the zip file <br>
+Run the jaltantra_local.exe file and a console should popup showing the server startup <br>
+Now goto the browser and type in http://localhost:8080/jaltantra/ to access the local web version of JalTantra <br>
+JalTantra requires java 8 or later. <br> 
+In case java is not installed, you will be taken to the download website
+
+<h3> Sample Files </h3>
+
+Sample Input: <a target="_blank" href="/jaltantra/Sample_Files/Sample.BRA">Sample.BRA</a> or <a target="_blank" href="/jaltantra/Sample_Files/Sample.xml">Sample.xml</a> or <a target="_blank" href="/jaltantra/Sample_Files/Sample_input.xls">Sample_input.xls</a> <br>
+Sample Output: <a target="_blank" href="/jaltantra/Sample_Files/Sample_output.xls">Sample_output.xls</a> <br><br>
+Sample Input(With ESR option): <a href="/jaltantra/Sample_Files/Sample_ESR.xml" target="_blank">Sample_ESR.xml</a> or <a href="/jaltantra/Sample_Files/Sample_input_ESR.xls" target="_blank">Sample_input_ESR.xls</a> <br>
+Sample Output(With ESR option): <a href="/jaltantra/Sample_Files/Sample_output.xls" target="_blank">Sample_output_ESR.xls</a><br><br>
+Sample Input(With ESR and Pump option): <a href="/jaltantra/Sample_Files/Sample_ESR_Pump.xml" target="_blank">Sample_ESR_Pump.xml</a> or <a href="/jaltantra/Sample_Files/Sample_input_ESR_Pump.xls" target="_blank">Sample_input_ESR_Pump.xls</a> <br>
+Sample Output(With ESR and Pump option): <a href="/jaltantra/Sample_Files/Sample_output_ESR_Pump.xls" target="_blank">Sample_output_ESR_Pump.xls</a><br>
+
+
+<h2> Description </h2>
+<img src="/jaltantra/Images/South_Mokhada_Tanker_Fed_map.png" height="400" width="400" alt="Mokhada Tanker-Fed Villages" style="border:2px solid black"/>
+
+<p>
+Above is a Google Earth image of tanker fed villages in the Mokhada taluka of Thane. <br>
+We would like to design a piped water network to alleviate their water problems. <br>
+A typical multi village design consists of the following components: <br>
+Source <br>
+MBR (Mass Balancing Reservoir) <br>
+WTP (Water Treatment Plant) <br>
+ESR (Elevated Storage Reservoirs) <br> 
+Demand points <br>
+Pipes connecting all of the above <br>
+Pumps <br>
+Valves <br>
+</p>
+<img src="/jaltantra/Images/Network_Design.jpg" alt="Typical Network Design" style="border:2px solid black"/>
+
+<p>Designing a particular scheme means locating and sizing each of the above components. <br>
+Which source do we use? <br>
+Where do we place our ESRs in terms of location as well as elevation. <br>
+What should be its capacity? <br>
+What should be the diameter of the pipes? <br>
+The aim of the design is to satisfy the water demand of each village and at the same time minimize capital and/or operational cost of the design. <br>
+Therefore the questions have to be answered in light of that objective.<br>
+In the first iteration of our system, we attempt to optimize the pipe diameters given the location and demand of the ESRs.
+<br>
+We have now also integrated ESR selection (location, height, capacity as well as which nodes it serves) into the optimization. 
+</p>
+
+
+
+<h2> References </h2>
+Linear program interface used: <a href="https://developers.google.com/optimization/" target="_blank"> Google OR-Tools </a> <br> 
+Linear program solver used: <a href="https://projects.coin-or.org/Cbc" target="_blank">COIN-OR Branch and Cut (CBC)</a> <br>
+
+<h2> Publications </h2>
+<a target="_blank" href="/jaltantra/papers/A Series of ILP Models for the Optimization of Water Distribution Networks.pdf"> A Series of ILP Models for the Optimization of Water Distribution Networks</a> - Nikhil Hooda, Ashutosh Mahajan and Om Damani. <i>Sadhana 44.12 (2019): 239, Indian Academy of Sciences.</i> <br><br>
+<a target="_blank" href="/jaltantra/papers/JalTantra A System for Design and Optimization of Rural Piped Water Networks.pdf"> JalTantra: A System for Design and Optimization of Rural Piped Water Networks</a> - Nikhil Hooda and Om Damani. <i>INFORMS Journal on Applied Analytics (2019).</i> <br><br>
+<a target="_blank" href="/jaltantra/papers/Inclusion_of_tank_configurations_as_a_variable_in_.pdf"> Inclusion of Tank Configurations as a Variable in the Cost Optimization of Branched Piped Water Networks</a> - Nikhil Hooda and Om Damani.<i> Drinking Water Engineering and Science 10.1 (2017): 39-44</i>. Preliminary version in <i>14th Conference on Computing and Control for the Water Industry, CCWI 2016.</i> <br><br>
+<a target="_blank" href="/jaltantra/papers/A System for Optimal Design of Pressure Constrained Branched Piped Water Networks.pdf"> A System for Optimal Design of Pressure Constrained Branched Piped Water Networks</a> - Nikhil Hooda and Om Damani. <i>18th Conference on Water Distribution System Analysis, WDSA (2016)</i>.  <br><br>
+
+<h2> Contact </h2>
+Contact jaltantra.iitb@gmail.com for any doubts or queries <br>
+Join the <a target="_blank" href="https://groups.google.com/forum/#!forum/jaltantra-users/join">JalTantra Google Group</a> for any discussion regarding JalTantra

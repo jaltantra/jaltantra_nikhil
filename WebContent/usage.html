@@ -1,0 +1,180 @@
+<title> Using JalTantra </title>
+
+<h2> JalTantra </h2>
+A System for Design and Optimization of Water Distribution Networks <br>
+JalTantra System: <a href="https://www.cse.iitb.ac.in/jaltantra" target="_blank"> https://www.cse.iitb.ac.in/jaltantra </a><br>
+<br>
+JalTantra Video Tutorial: <a href="https://www.youtube.com/watch?v=605FCrPr8P4" target="_blank"> LINK </a> <br>
+JalTantra Tutorial Script: <a href="/jaltantra/script.html" target="_blank"> LINK </a> <br>
+
+<h2> Usage instructions </h2>
+<h3> Sample Files </h3>
+
+Sample Input: <a target="_blank" href="/jaltantra/Sample_Files/Sample.BRA">Sample.BRA</a> or <a target="_blank" href="/jaltantra/Sample_Files/Sample.xml">Sample.xml</a> or <a target="_blank" href="/jaltantra/Sample_Files/Sample_input.xls">Sample_input.xls</a> <br>
+Sample Output: <a target="_blank" href="/jaltantra/Sample_Files/Sample_output.xls">Sample_output.xls</a> <br><br>
+Sample Input(With ESR option): <a href="/jaltantra/Sample_Files/Sample_ESR.xml" target="_blank">Sample_ESR.xml</a> or <a href="/jaltantra/Sample_Files/Sample_input_ESR.xls" target="_blank">Sample_input_ESR.xls</a> <br>
+Sample Output(With ESR option): <a href="/jaltantra/Sample_Files/Sample_output.xls" target="_blank">Sample_output_ESR.xls</a><br><br>
+Sample Input(With ESR and Pump option): <a href="/jaltantra/Sample_Files/Sample_ESR_Pump.xml" target="_blank">Sample_ESR_Pump.xml</a> or <a href="/jaltantra/Sample_Files/Sample_input_ESR_Pump.xls" target="_blank">Sample_input_ESR_Pump.xls</a> <br>
+Sample Output(With ESR and Pump option): <a href="/jaltantra/Sample_Files/Sample_output_ESR_Pump.xls" target="_blank">Sample_output_ESR_Pump.xls</a><br>
+	                	
+
+
+<h3> Input </h3>
+
+NOTE: Variables marked {} are optional <br>
+Source node: head <br>
+Node: elevation, {demand}, {min pressure requirement} <br>
+Pipe: start/end node, length, {roughness}, {diameter}, {parallel allowed} <br>
+Commercial pipe diameter: cost <br>
+ESR: cost of construction for different capacities, ESR size with respect to daily demand, {maximum ESR height} <br>
+Pump: pump efficiency, capital cost per kW, energy cost per kWh, design lifetime, {discount and inflation rate} <br>
+Pipe network must be branched, i.e. no loops <br>
+Single sourced <br>
+
+<h3> Output </h3>
+
+Pipe diameters <br>
+[ESR: location, height, capacity, which nodes served] <br>
+[Pump: location, power, head provided] <br>
+
+<h3> Objective </h3>
+
+Minimize total pipe cost [+ ESR cost] [+ Pump Capital cost] [+ Pump Energy cost] <br>
+
+<h3> Constraints </h3>
+
+Minimum pressure specified must me maintained at each node <br>
+Demand must be met at each node <br>
+Pipe diameters can only take values from provided commercial pipes data <br> 
+
+<h3> Map Tab </h3>
+<img src="/jaltantra/Images/Map.png" style="border:2px solid black" />
+<p>
+Transfer Data: Transfer the node and pipe information to the nodes and pipes tab <br>
+Close Chart: Deselect the currently selected pipe and close its associated elevation chart<br>
+Search Location: Search for a location on the map (type in the location and select from the downdrop menu or press enter. Can also enter lat, long information)<br><br>
+Add Node: Add a node to the map (Click on the button then click on a point on the map. Once added you can modify the node name and id and also change location by either entering the lat/long info or manually moving the node. You can also set if this node is the source node or an ESR node) <br>
+Add Pipe: Add a pipe between two nodes on the map (Click on the button then click on two existing nodes on the map one by one) <br><br>
+Right click the map: Provides options to add/edit/delete nodes, add/delete/split pipes or close the elevation chart<br>
+Right click a node: Provides options to delete or edit the node. (Deleting the node removes all pipes connected to it)<br>
+Right click a pipe: Provides options to delete/split a pipe or close the elevation chart. (Spliting a pipe adds a node at the split point and creates two pipes instead of the original one)<br>  
+</p>
+
+<h3> General Tab </h3>
+<img src="/jaltantra/Images/General.png" style="border:2px solid black" />
+<p>
+Name of Project: Text (Your Project Name) <br>
+Minimum Node Pressure: Double (metre) (The default minimum pressure that must be maintained at all nodes) <br>
+Default Pipe Roughness: Double (The default pipe roughness that is used to calculate headloss in the pipes) <br>
+Minimum Headloss per KM: Double (metre) (The minimum headloss per km that is allowed in each pipe) <br>
+Maximum Headloss per KM: Double (metre) (The maximum headloss per km that is allowed in each pipe) <br>
+Maximum Speed of Water: Double (metre per second) (not mandatory, default:no constraint) (Maximum speed of water in metres per second that is allowed in a pipe) <br>
+Maximum Pressure in Pipe: Double (metre) (not mandatory, default:no constraint) (Maximum pressure of water in metres that should exist in a pipe. Note that this constraint is not strictly enforced, but a warning is provided in the results if pressure is exceeded) <br>
+Number of Supply Hours: Double (Number of hours in a day that water is supplied for. For example if supply hours is 12 it corresponds to a peak factor of 2)<br>
+Source Node ID: Integer (The unique node id of the source) <br>
+Source Node Name: String (The name of the source node) <br>
+Source Head: Double (metre) (The constant water head provided by the source) <br>
+Source Elevation: Double (metre) (The elevation of the source) <br>
+NOTE: The source details should NOT be duplicated in the node tab <br>
+</p>
+
+<h3> Nodes Tab </h3>
+<img src="/jaltantra/Images/Nodes.png" style="border:2px solid black" />
+<p>
+NodeID: Integer (unique nodeID of your node) <br>
+Node Name: String (Name of your node) <br>
+Elevation: Double (metre) (elevation of your node) <br>
+Demand: Double (litres per second) (not mandatory, default:0) (demand of your node) <br>
+Min. Pressure: Double (metre) (not mandatory, default: from general tab) (minimum pressure that needs to maintained at the node) <br><br>
+Add New: (Add extra row corresponding to one node) <br>
+Delete: (Rmove selected rows) <br>
+</p>
+
+<h3> Pipes Tab </h3>
+<img src="/jaltantra/Images/Pipes.png" style="border:2px solid black" />
+<p>
+PipeID: Integer (unique pipeID of your pipe) <br>
+Start Node: Integer (nodeID of the node at the start of your pipe) <br>
+End Node: Integer (nodeID of the node at the end of your pipe) <br>
+Length: Double (metre) (length of your pipe) <br>
+Diameter: Integer (milimeter) (not mandatory, default:to be calculated) (diameter of your pipe) <br>
+Roughness: Double (not mandatory, default:from general tab) (roughness of pipe that is used to calculate the headloss in the pipe) <br>
+Parallel Allowed: Boolean (not mandatory, default: false) (If a new pipe is allowed to be placed in parallel to an existing pipe.)<br><br>
+Add New: (Add extra row corresponding to one pipe) <br>
+Delete: (Remove selected rows) <br>
+</p>
+
+<h3> Commercial Pipes Tab </h3>
+<img src="/jaltantra/Images/CommercialPipes.png" style="border:2px solid black" />
+<p>
+Diameter: Integer (milimeter) (unique diameter of the commercial pipe) <br>
+Roughness: Double (not mandatory, default:from general tab) (Roughness of the commercial pipe) <br>
+Cost: Double (Rs per metre) (cost per metre of the commercial pipe) <br><br>
+Add New: (Add extra row corresponding to one commercial pipe) <br>
+Delete: (Remove selected rows) <br>
+</p>
+
+<h3> ESR Tab </h3>
+<img src="/jaltantra/Images/ESR.png" style="border:2px solid black" />
+<p>
+Secondary Network Supply Hours : Double (Number of hours in day that an ESR provides water to its secondary network) <br>
+ESR Capacity Factor: Double (Size of ESR in relation to the daily demand it serves. For eg a value of 0.5 means that the ESR capacity is half the daily demand) <br>
+Maximum ESR Height: Double (metre) (not mandatory, default:no constraint) (Maximum height of ESR in metres) <br>
+Allow ESRs at zero demand nodes: Boolean (deafult:false) (Allow ESRs to placed at nodes with zero demand. Note that if zero demand nodes are not allowed optimization will be significantly faster) <br>
+Nodes with ESRs: (default:no constraint) (List of Nodes that must have ESRs) <br>
+Nodes without ESRs: (default:no constraint) (List of Nodes that must not have ESRs) <br>
+</p>
+
+<h3> ESR Cost Tab </h3>
+<img src="/jaltantra/Images/ESR_Cost.png" style="border:2px solid black" />
+<p>
+Minimum Capacity: Double (litre) (default: max capacity of previous row) (Minimum capacity of the row in the ESR cost table) <br>
+Maximum Capacity: Double (litre) (Maximum capacity of the row in the ESR cost table) <br>
+Base Cost: Double (Rs) (default: calculated from previous row) (base cost of ESR having capacity between the minimum and maximum capacity) <br>
+Unit Cost: Double (Rs per litre) (unit cost of ESR having capacity between the minimum and maximum capacity) <br><br>
+Add New: (Add extra row for the ESR cost table) <br>
+Delete: (Remove selected rows) <br>
+</p>
+
+<h3> Pump Tab </h3>
+<img src="/jaltantra/Images/pump.png" style="border:2px solid black" />
+<p>
+Minimum Pump Size : Double (kW) (Size of Minimum Pump in kW that can be installed) <br>
+Pump Efficiency: Double (Efficiency of pump expressed as a %) <br>
+Capital Cost per kW: Double (Rs) (Capital cost of the pump per kW installed capacity) <br>
+Energy Cost per kWh: Double (Rs) (Energy cost per kWh energy consumed) <br>
+Design Lifetime: Integer (Number of years for which pumps will be operational) <br>
+Discount Rate: Double (default: 0) (Discount rate is the interest rate expressed as a %. More the discount rate lesser is the enrgy cost of the pump) <br>
+Inflation Rate: Double (default: 0) (Inflation rate is the rate by which prices rise expressed as a %. More the inflation rate greater is the energy cost of the pump) <br>
+Pipes without Pumps: (default:no constraint) (List of pipes that cannot have Pumps) <br>
+</p>
+
+
+<h3> Results Tab </h3>
+<img src="/jaltantra/Images/Result.png" style="border:2px solid black" />
+<p>
+Node Tab: Nodewise results including head and pressure values for each node <br>
+Pipe Tab: Pipewise results including flow, diamter, headloss, headlossperkm and cost for each pipe <br>
+Cost Tab: Cost results for each diameter of commercial pipe <br>
+ESR Tab: Cost results for each ESR to be constructed <br>
+Pump Tab: Cost results for each Pump to be installed <br>
+</p>
+
+<h2> Hints </h2>
+If you get a timeout message try one or more of the following things:
+<ul>
+	<li>Try reducing the number of possible ESR locations</li>
+	<li>Try disabling ESR at dummy nodes</li>
+	<li>Try disabling ESR optimization</li>
+	<li>If the network is still timing out, or if you want to run the network as is, download the <a href="/jaltantra#systemlinks" target="_blank">local version</a></li>
+</ul>
+
+If you get a message saying unable to solve network try one or more of the following things:
+<ul> 
+	<li>Try lowering minimum node pressure(in the general tab or for particular nodes) </li>
+	<li>Increasing the head of your source node </li>
+	<li>Reduce demand for nodes </li>
+	<li>Reduce elevation for nodes </li>
+	<li>Add Commercial Pipes with larger diameters </li>
+	<li>Verify that you are using units consistently </li>
+</ul>

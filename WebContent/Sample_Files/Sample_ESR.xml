@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+  <name>Sample</name>
+  <nodes>
+    <defaultMinPressure>7.0</defaultMinPressure>
+    <supplyHours>12.0</supplyHours>
+    <source elevation="505.0" head="530.0" nodeID="8" nodeName="Node8"/>
+    <node demand="2.1" elevation="442.0" nodeID="1" nodeName="Node1"/>
+    <node demand="0.8" elevation="477.0" nodeID="2" nodeName="Node2"/>
+    <node demand="3.4" elevation="496.0" nodeID="3" nodeName="Node3"/>
+    <node demand="1.75" elevation="464.0" nodeID="4" nodeName="Node4"/>
+    <node demand="2.6" elevation="493.0" nodeID="7" nodeName="Node7"/>
+    <node demand="1.8" elevation="390.0" nodeID="6" nodeName="Node6"/>
+    <node elevation="517.0" nodeID="9" nodeName="Node9"/>
+    <node elevation="509.0" nodeID="10" nodeName="Node10"/>
+    <node elevation="472.0" nodeID="11" nodeName="Node11"/>
+  </nodes>
+  <pipes>
+    <defaultRoughness>140.0</defaultRoughness>
+    <minHeadLossPerKM>0.0</minHeadLossPerKM>
+    <maxHeadLossPerKM>10.0</maxHeadLossPerKM>
+    <maxWaterSpeed>1.5</maxWaterSpeed>
+    <pipe diameter="110.0" endNode="7" length="7345.0" parallelAllowed="true" pipeID="2" startNode="3"/>
+    <pipe endNode="6" length="3491.0" pipeID="3" startNode="2"/>
+    <pipe endNode="4" length="2442.0" pipeID="4" startNode="2"/>
+    <pipe endNode="3" length="1943.0" pipeID="5" startNode="9"/>
+    <pipe endNode="9" length="2686.0" pipeID="6" startNode="8"/>
+    <pipe endNode="2" length="4808.0" pipeID="7" startNode="10"/>
+    <pipe endNode="10" length="924.0" pipeID="8" startNode="3"/>
+    <pipe endNode="1" length="4266.0" pipeID="9" startNode="11"/>
+    <pipe endNode="11" length="485.0" pipeID="10" startNode="4"/>
+  </pipes>
+  <pipeCosts>
+    <pipeCost cost="116.0" diameter="63.0"/>
+    <pipeCost cost="172.0" diameter="75.0"/>
+    <pipeCost cost="231.0" diameter="90.0"/>
+    <pipeCost cost="340.0" diameter="110.0"/>
+    <pipeCost cost="461.0" diameter="125.0"/>
+    <pipeCost cost="576.0" diameter="140.0"/>
+    <pipeCost cost="750.0" diameter="160.0"/>
+    <pipeCost cost="945.0" diameter="180.0"/>
+    <pipeCost cost="1113.0" diameter="200.0"/>
+    <pipeCost cost="1430.0" diameter="225.0"/>
+    <pipeCost cost="1762.0" diameter="250.0"/>
+    <pipeCost cost="2210.0" diameter="280.0"/>
+    <pipeCost cost="2794.0" diameter="315.0"/>
+  </pipeCosts>
+  <esr>
+    <esr_enabled>true</esr_enabled>
+    <secondary_supply_hours>6.0</secondary_supply_hours>
+    <esr_capacity_factor>0.5</esr_capacity_factor>
+    <max_esr_height>25.0</max_esr_height>
+    <allow_dummy>true</allow_dummy>
+    <must_esrs/>
+    <must_not_esrs>
+      <must_not_esr>4</must_not_esr>
+	  <must_not_esr>7</must_not_esr>
+    </must_not_esrs>
+    <esr_costs>
+      <esr_cost basecost="0.0" maxcapacity="25000.0" mincapacity="0.0" unitcost="24.47"/>
+      <esr_cost basecost="611750.0" maxcapacity="50000.0" mincapacity="25000.0" unitcost="12.96"/>
+      <esr_cost basecost="935750.0" maxcapacity="75000.0" mincapacity="50000.0" unitcost="9.64"/>
+      <esr_cost basecost="1176750.0" maxcapacity="100000.0" mincapacity="75000.0" unitcost="8.64"/>
+      <esr_cost basecost="1392750.0" maxcapacity="150000.0" mincapacity="100000.0" unitcost="7.23"/>
+      <esr_cost basecost="1754250.0" maxcapacity="200000.0" mincapacity="150000.0" unitcost="6.03"/>
+      <esr_cost basecost="2055750.0" maxcapacity="300000.0" mincapacity="200000.0" unitcost="5.4"/>
+      <esr_cost basecost="2595750.0" maxcapacity="400000.0" mincapacity="300000.0" unitcost="5.12"/>
+      <esr_cost basecost="3107750.0" maxcapacity="1500000.0" mincapacity="400000.0" unitcost="4.32"/>
+      <esr_cost basecost="7859750.0" maxcapacity="2000000.0" mincapacity="1500000.0" unitcost="3.92"/>
+    </esr_costs>
+  </esr>
+  <map>
+    <map_source_node nodeid="8"/>
+    <map_nodes>
+      <map_node isesr="false" latitude="20.0227" longitude="73.30700000000002" nodeid="1" nodename="Node1"/>
+      <map_node isesr="false" latitude="19.9942" longitude="73.35590000000002" nodeid="2" nodename="Node2"/>
+      <map_node isesr="false" latitude="19.9987" longitude="73.39859999999999" nodeid="3" nodename="Node3"/>
+      <map_node isesr="true" latitude="20.0105" longitude="73.34559999999999" nodeid="4" nodename="Node4"/>
+      <map_node isesr="false" latitude="20.0298" longitude="73.41219999999998" nodeid="7" nodename="Node7"/>
+      <map_node isesr="false" latitude="19.9756" longitude="73.42679999999996" nodeid="8" nodename="Node8"/>
+      <map_node isesr="false" latitude="19.9767" longitude="73.36619999999994" nodeid="6" nodename="Node6"/>
+      <map_node isesr="false" latitude="19.9888" longitude="73.40879999999993" nodeid="9" nodename="Node9"/>
+      <map_node isesr="true" latitude="19.999" longitude="73.39300000000003" nodeid="10" nodename="Node10"/>
+      <map_node isesr="false" latitude="20.0117" longitude="73.34190000000001" nodeid="11" nodename="Node11"/>
+    </map_nodes>
+    <map_pipes>
+      <map_pipe destinationid="7" encodedpath="{~`yBgt~~LGQaA\_@PQR]ZOFSBq@UUSGM?i@FmAZiAVqAj@sA\i@?OGKUCa@DmA@UJMd@KbAQTUDoAQ_@MGEUi@Sc@QSk@a@m@YuA_AiBqBg@e@{@m@s@_@q@UiAa@SQOa@OYs@_@c@Ie@AWA[Mg@MsASsCq@wB{@sBaAoBq@kBw@u@OK@MFSXKFOA[MaAs@IKSGq@G[@UJQPIZE`@WVs@f@YLUAOM]_@Q?GN@^Tl@Zj@j@RXFTERKNAHN?TKP]l@LzA@dASdAe@d@a@R[@c@I]Q}@UoE]]IUKQOO]g@mAIuBOKa@Qi@c@IWB_@\uAAYQ?ONYn@Qh@MDKECYL[D_@?g@C]QCOFcAbAURO@MEUWg@wAS_@c@S[KIOAo@Ai@?YTeATy@NWd@[XKV?bA@PGFOf@sC|AeFTq@p@gAd@w@z@}Ab@s@l@y@BO@KAEEAM?eBLg@Bk@KgBQe@Ec@?iB\]De@Cw@Ic@A_BB}B?_AKa@E{@UcEmBeAc@m@o@mBaBQWWu@e@q@]Ko@KuAc@cDkA]IWUy@}@EI@MDIfAQVMFILe@AQOc@u@cAg@YqAI]BCRLVDb@IXKFQBe@BYJCTBXX|@Rd@H`@tAjAh@z@ZXd@Vx@Ll@ZNNFLAd@@t@ERSHs@PaB\a@Bi@Ms@K}@Ge@As@Ew@BoALu@BsA?g@BcCj@i@J[L_An@s@Jo@By@KU?MDQFW@GASOSUYU_@k@c@_@c@w@Uc@E]Mq@a@]SMYEU?KL?`@Cb@E^@l@DLNJv@TRP" length="7345.125266427534" originid="3"/>
+      <map_pipe destinationid="6" encodedpath="wb`yBkiv~LJmAj@LjAv@`BoDbBaDpEeIb@WxAs@bAm@Va@?QEEYEiAb@OFMEEI?OHORKtAc@HMIUGAQDgBl@MCGK@Sj@g@hAm@`@IzAGj@CDi@JKPALBJLAl@AZDNVXRH`@CfDm@PM^]z@e@ZWPg@NUp@_@j@KP?hAZTBXCVMRYt@gBJe@ZiCLSr@e@~DcBf@]fBkCb@YXI~Cy@`@[NWNe@d@yCAkAImADQJMRMn@SpAOv@Db@EjAg@r@OhA?RETIvA}@`@a@JMLm@P_@LMx@Kl@?`@DZNNPFPAb@OtCc@xBAd@Jf@JVd@b@rBjA\Jp@NDFUP" length="3490.776552370014" originid="2"/>
+      <map_pipe destinationid="4" encodedpath="wb`yBkiv~LJmAj@LjAv@Yf@k@v@sBvCk@v@YTiA`@aCj@qD`@wNnC_Bj@uAj@_Ap@k@h@eAp@mAz@}FpEqAp@q@d@qCrCyDdFc@d@yAz@gFdCYBe@E}C_@_A]KCMB]JsBnAUFOBQ?]GU@OFGHCX?|@Kp@EPMN}ArAOS" length="2442.1533457045743" originid="2"/>
+      <map_pipe destinationid="3" encodedpath="_a_yB_t`_MWtAc@rASr@{@|Aa@|@s@dAoA`Bq@z@}@j@eAf@e@Hw@FUDU?e@G]KU@c@LoBz@iBt@QN[f@k@r@[Rg@PKACA@LD^Vj@Xv@@t@AlA?lARdA^jAVl@Ll@NhBNpAAVKGOEo@DkA@q@E]D_@b@Y`@c@Xa@L}@AgAB_AH[Au@Uk@By@Xo@^YJgB`@gA\]RFP" length="1942.8754234332664" originid="9"/>
+      <map_pipe destinationid="9" encodedpath="on|xBodd_MZp@gAj@mClAaAr@[^w@xAq@fAY\e@`@[Ry@ZoBZiCVcCh@gBh@_@NQXOh@MhBHdAH`@p@~@`@h@P^f@zAFf@D|COj@OVq@z@]n@eA~B{@`B{@rAe@t@[RaAXoAj@cB`AqAhAo@XcCnA_An@MPI`@]fA]j@QL]`@}@jAs@jAeBrCoB`EaBbEo@pASZu@nAi@`A]x@C\@^SD" length="2686.390438690416" originid="8"/>
+      <map_pipe destinationid="2" encodedpath="w`ayBgq}~LY|BK^Wl@ET@THd@EbAAbBEl@o@tBcAlBc@jAMb@OfABhBJT^\n@h@AXo@z@k@bBG^C|@OxBDdAE`A}@tBQr@Kz@MlCE|CZjAD~@H^RTH^nBh@fAh@`@VPXd@n@h@f@x@^PLFL@JAXMZUl@IPMLUd@F^f@n@PLh@NTHHLHZIZAh@JRJDZDbAIl@H~Al@BNCLQd@Wz@Gf@Tt@PXXVPNHVh@lBd@bAHj@Cb@GTMR}@xAa@tAcAnCC`@Jx@j@pBT|ALf@PZp@r@~@v@PRNb@ZvAXtBp@`HV\XDn@?TFHLBLH`AN`CG~BK`BCTDZFLTPVPj@PpAZZLPRTf@b@rBZzBHz@?l@]lBu@lCaAjBk@zBE`A`@xDJt@HRFJPJlCh@rATuAhCaBnDkAw@k@MKlA" length="4808.019849116888" originid="10"/>
+      <map_pipe destinationid="10" encodedpath="{~`yBgt~~LGQ\SfA]fBa@XKILg@v@e@f@a@n@]zA{ApBy@x@GLAPHx@t@`Cx@~BjA|CF`@KXy@h@o@ZQPUzAS`A" length="923.5606436345847" originid="3"/>
+      <map_pipe destinationid="1" encodedpath="cpcyB{qs~L?z@Hx@z@~CVnAZx@T^bAp@lAx@RZTpADZ?`@KhC[hCa@nAWf@gA`Bg@l@iBtAKNCRCz@KvAi@fC_AdCmA~BsArBe@fA_BfCaBrD]r@}@dAyAnBaA~AgCrEyAtBoEzGwAlCmBhE{AbE[tCc@`Ea@zDe@lDWfAg@tAsAnD]hA]|@e@z@k@v@w@|@y@|@u@dAk@~@Wv@MrAq@xDq@vDo@zDGv@Ml@W`@Il@Fr@XfA\dALr@@n@AVEJi@Do@EOFCHDN^d@b@r@Zh@Pl@D|@hAT" length="4265.758232786284" originid="11"/>
+      <map_pipe destinationid="11" encodedpath="shcyB_it~LNRgA`AGP?V?Rb@dANf@Hz@AZITGPUNoBx@k@`@URGNCP@|@G|B?B" length="484.540304029901" originid="4"/>
+    </map_pipes>
+  </map>
+</root>

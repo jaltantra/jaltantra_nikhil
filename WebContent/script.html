@@ -1,0 +1,282 @@
+<title> Script for JalTantra video Tutorial </title>
+
+<h2> JalTantra </h2>
+A System for Design and Optimization of Water Distribution Networks <br><br>
+
+JalTantra Video Tutorial: <br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/605FCrPr8P4" frameborder="0" allowfullscreen></iframe>
+
+<br><br> Following is the script for the above video tutorial: <br>
+
+
+<h3> 1. INTRODUCTION </h3>
+Welcome to a tutorial on how to use JalTantra <br>
+JalTantra is a system used to optimize piped water networks <br>
+Given the relevant information about a network it will provide the user with the optimal pipe diameters so that capital cost is minimized <br>
+Some of the assumptions we make regarding the network to be solved are:
+<ul>
+<li> It has a single source which provides a steady head no matter what the demand </li>
+<li> It is a branched network i.e. there are no loops in the network </li>
+</ul>
+The system is free to use and publicly available at <a href="https://www.cse.iitb.ac.in/jaltantra/system.html" target="_blank"> https://www.cse.iitb.ac.in/jaltantra/system.html </a>
+
+<h3> 2. OVERVIEW OF SYSTEM </h3>
+On the left side we have a sidebar which displays all the panels of the system <br>
+The four primary options are:
+<ul>
+<li> Network Description which contains the input forms to provide information about the network </li>
+<li> Optimize Network, from where you tell the system to optimize the network and where the results are displayed </li>
+<li> Load/Save files, from where you can load input files or save input/output files </li>
+<li> and finally the Help section, from where you can get additional information about the system </li>
+</ul>
+We will now go over each option and look at their panels in detail
+
+<h3> 3. NETWORK DESCRIPTION </h3>
+The first option is Network description <br>
+This contains the various panels using which all the network information is provided <br>
+
+<h4> 3.1 GENERAL INFORMATION </h4>
+The first panel is the general panel which contains input fields for the general information of a network <br>
+Let's go through the fields one by one: <br><br>
+First we have the name of the project. Let's name it "sample" <br><br>
+
+Next, we have the minimum node pressure.<br>
+This is the minimum pressure in metres that must be maintained at all nodes by default.<br> 
+We can override this and give different values for different nodes, but this is the default value. <br>
+Let's use a value of 5 metres for our sample project <br><br>
+
+Next, we have the default pipe roughness. <br>
+For measuring headloss in pipes we use the hazens-williams headloss equation. <br>
+This is the roughness coefficient used in the formula. <br>
+This is the default value used for all pipes, but can be overridden with different values for specific pipes. <br>
+Here, let's use a typical value of 140 <br><br>
+
+Next we have the minimum and maximum headloss per km input fields. <br>
+This is the minimum and maximum headloss in metres that is allowed per kilometre for each pipe in the network. <br>
+Let's use typical values of 0.01 and 5 metres respectively for the two fields. <br><br>
+
+Next, we come to number of supply hours. <br>
+This is the number of hours in a day for which the source provides water. <br>
+This determines the peak factor for the flow in the network. <br>
+For example, if the number of supply hours is 12 then water demand for the entire day must be satisfied in 12 hours. <br>
+This is equivalent to having a peak factor of 2 i.e. nodes have an effective demand that is double their stated demand. <br>
+For our sample project let's keep things simple and use a value of 24 hours. <br><br>
+ 
+Finally we come to some information regarding our source. <br>
+Firstly we give the node id of the source node. <br>
+Node id is a unique integer identifier that is given to each node in the network. <br>
+Note that node id must be greater than or equal to 1. <br>
+Here we enter this unique id for the source. Lets give our source the node id of 1. <br><br>
+
+Next we have the name of our source. <br>
+Here let us just enter "source". <br><br>
+
+Then we give the source head. <br>
+This is the head in metres that the source provides constantly no matter what the demand of the network. <br>
+Let's enter 100 metres for our source head. <br><br>
+Finally we have source elevation. <br>
+This is the elevation of our source node in metres. <br>
+Let's enter 90 metres. <br><br>
+
+<h4> 3.2 NODES </h4>
+Now we are finally done with the general information. <br>
+Next we move on to the nodes panel to enter all the information regarding the nodes of our network.<br>
+The nodes information is displayed as a table with the following columns:
+<ul>
+<li>	Node ID: This is the unique integer identifier for each node. </li>
+<li>	Node Name: The name of a node. Note that this field is optional. </li>
+<li>	Elevation: Elevation of the node in metres. </li>
+<li>	Demand: The water demand of the node in litres per second. This field is optional, if left empty a zero demand is assumed. For example if there is an intermediate node with zero demand, then the demand field can be left empty. </li>
+<li>	Minimum Pressure: This is the minimum pressure in metres that must be maintained at that node. If left empty it uses the default minimum node pressure value from the general information panel. </li>
+</ul>
+To add a node we simply click on the add new button at the top. <br>
+As you can see it has already given a node id number of 2 since we have already used 1 for our source. <br>
+If needed we can overwrite this and use any integer greater than equal to 1. <br>
+To edit any value double click on the cell. <br>
+Let's use 5 for the id of our first node.<br><br>
+To edit the rest of our columns we can double click each of them one by one or we can simply use tab and shift-tab to cycle through the cells.<br> 
+Let's enter the details for first node. <br>
+For Node name let's enter node5. <br>
+Next for elevation let us put 70 metres and have a demand of 2 litres per second.<br>
+Finally lets leave minimum pressure empty since we want to use the default minimum pressure value of 5 metres as given in the general information screen.<br><br>
+Let us add 2 more nodes to our sample network and quickly fill in their details as well.<br>
+As you can see the two nodes were given node id's of 2 and 3 since for the first node we used 5 and 1 was already used by the source node.<br>
+We will now fill some details for the two nodes (enter [zeronode2,80,empty,3] for one and [node3,50,4,10] for the other)<br>
+For the second node we give it a name zeronode2 since we don't have any demand.<br>
+That is why we can leave the demand empty.<br> 
+Since it has no demand we can decrease the minimum pressure requirement to 3 metres.<br>   
+Finally for node 3 we might want to ensure extra pressure so give it a minimum pressure value of 10 metres.<br><br>
+
+Here we have some tools to look at the data better especially if we have a lot of nodes in our network.<br>
+We can click on the column headers to sort the rows on that column.<br>
+For example we can sort by node name.<br>
+We can also search for nodes by using the search bar at the top.<br>
+For example we can search for zeronode by typing zeronode in the search bar and pressing enter.<br>
+Now it displays only those rows that have zeronode.<br>
+To clear the search just press the cross at the right side of the search bar.<br>
+We can also delete nodes if we have added them by mistake.<br>
+Let us first add a couple of nodes and then delete them.<br>
+To add we just press the add new button again a couple of times.<br>
+To remove both of them we just select them by pressing the check box and then pressing the delete button.<br>
+
+<h4> 3.3 PIPES </h4>
+We are done with the nodes so let us now go to the pipes section.<br>
+The functionality of this panel is very similar to the nodes panel.<br>
+As before we have a table with the pipe information and we can do similar tasks like add, delete and search.<br>
+Let us go over the columns for the pipe table:
+<ul>
+<li>	Pipe ID: Just like the node id, this is the unique integer identifier for each pipe in the network. </li>
+<li>	Start Node: This is the node id of the node at the start of the pipe.</li>
+<li>	End Node: Similarly, this is the node id of the node at the end of the pipe.</li>
+<li>	Length: This is the length of the pipe.</li>
+<li>	Diameter: Normally diameter is calculated by the optimization and this field is left empty but if the pipe is using some existing diameter then the value can be set here.</li> 
+<li>	Roughness: This is the hazens-williams roughness coefficient for the pipe. This needs to be provided if an existing diameter is being used. If left empty it takes the default value provided in the general screen.</li>
+<li>	Parallel Allowed: If the pipe has an existing diameter, then this option can be enabled to allow a parallel pipe to be placed in case the primary pipe is not enough to serve the demand.</li>
+</ul> 
+As in the node screen, to add pipes simply click on the add new button.<br>
+Let's quickly add 3 pipes for our network and add some sample values (click on add new thrice and add the following pipe information [1,1,5,1000], [2,1,2,800] and [3,2,3,1300])<br>
+So in our sample network our source is connected to nodes 5 and 2.<br> 
+Node 2 is then further connected to node 3. <br>
+We can leave diameter and roughness values blank for now since we are not going to use any existing pipes. <br>
+
+<h4> 3.4 COMMERCIAL PIPES </h4>
+Next we come to the commercial pipe section. <br>
+This is where we enter the data for the commercially available pipe cost. <br>
+Each row in the table is simply the diameter of the pipe, its headloss roughness coefficient and the cost per metre of the pipe.<br>
+We can leave the roughness value blank and it will take the default value of roughness from the general screen.<br>
+Let's add some sample values for the commercial pipes (click on add new button 4 times and add [63,,116], [75,,172], [90,,231], [110,,340]).<br>
+
+<h4> 3.5 RESET </h4>
+We have now entered all the relevant data for our network and can move onto optimization.<br>
+If we want to clear all the data we can click on the reset button.<br>
+Make sure you save before resetting or all of the data will be lost.<br>
+Here let's just click cancel.<br>
+
+<h4> 3.6 MAP </h4>
+Entering all the node and pipe data can be very time consuming, especially if we have a large network. <br>
+Also data like node elevations and pipe lengths needs to be found either via surveys or through some GIS tool. <br>
+Rather than manually entering all this this data we can use the map tool. <br>
+The system uses Google Maps and allows to add nodes and pipes to the map and then export all the details to the node and pipe tables we saw earlier. <br>
+We can search for a location by name or by latitude longitude ( search khodala to show options then clear it and search for 19.7906,73.3984). <br>
+We can enter the latitude longitude details and press enter. <br>
+This takes us to the location on the map. <br>
+Here we can add a node at the location. (click on add node) <br>
+On adding the node we can edit its details like name, node id and whether it is the source. <br>
+Lets mark it as the source and click save. <br>
+Let's keep the rest of the details as is. (mark it as the source and click save) <br>
+At any point to edit the details of the node we can right click it and press edit node. (right click on the node) <br>
+We can also delete it if required. <br>
+These options as well as several others can be brought up by simply right clicking anywhere on the map. (right click on the map and show the context menu) <br>
+To add nodes simply click the add node button and click on a location on the map (click the add node button and click on the map) <br>
+As before we see the edit options for the node. Let's change name to node5 and id to 5. (change node name to node5 id to 5 and click save) <br>
+We can also add a node by right clicking a point on the map and choosing add node (right click a point on the map and click add node) <br>
+To add a pipe between two nodes click the add pipe button and then click the start node followed by the end node (click add pipe, then click the source followed by node5) <br>
+The pipe that is added is automatically added along the road network. <br>
+This also shows the elevation profile of the pipe. <br>
+Hovering over the chart shows the distance from the start node and the elevation of the point. (hover over the elevation chart) <br>
+To close the chart we can simply click the close chart button on the top. (click the close chart button) <br>
+To display the chart again we can simply click on the pipe. (click the pipe) <br>
+In case you dont want to add a pipe along the road but instead want to add a direct straight pipe between nodes, you can do that also. <br>
+Simply right click and choose the option add direct path. (right click and choose add direct path) <br> 
+Lets connect our final node as well by a direct pipe from node5 to node2 (click node5 and node2) <br>
+Here in the elevation chart we see a point of high elevation. <br>
+We might want to add a dummy node at that point. <br>
+To add a node at any intermediate point of the pipe just right click the pipe and press the split pipe button (right click the pipe and press split the pipe button) <br>
+Nodes can also be moved by left clicking and dragging them on the map (left click the node5 button and drag it a bit to the north. After a few secs drag it back) <br>
+Once we are done we can export all this data to the node and pipe tables by pressing the transfer data button (click on the transfer data button) <br>
+If the transfer data is confirmed it will overwrite any previous data that has been entered. <br>
+Once the data is transferred we can enter the additional details like node demand and any existing pipe diameters. <br>
+For now let's just click no and work with the previously entered data. (click no) <br>
+
+<h3> 4. OPTIMIZE </h3>
+With this we are done with looking at all the network information options. <br>
+Now we can move on to the optimization part. <br>
+
+<h4> 4.1 OPTIMIZE </h4>
+Let's maximize the optimize network menu and click on optimize. <br>
+While the system is optimizing the pipe diameters we will see a optimizing please wait popup. <br>
+Once done we will see the system popup done if successful or could not solve not network if the network cannot be solved.<br>
+For our sample network we have got a done message so it means we were successful. <br>
+
+<h4> 4.2 RESULTS </h4>
+We are then taken to the results screen where we can see the nodes, pipes and cost details in different tabs <br>
+In the nodes tab we can see the head at each node. <br>
+In the pipes tab we can see the diameter of the pipe chosen, the headloss in each pipe and the cost of each pipe.<br>
+In the cost tab we can the cost for each pipe diameter and the overall cost.<br>
+
+<h4> 4.3 MISCELLANEOUS CASES </h4>
+
+<h5> 4.3.1 MISSING INFORMATION </h5>
+If some information is missing in the input then we will get an appropriate warning message. <br>
+Let's try that by removing the source head from the general screen and try to optimize. <br>
+As we can see we get a warning message saying that the source head is missing.<br>
+
+<h5> 4.3.2 INFEASIBLE NETWORK </h5>
+Sometimes if the network is infeasible we get a network cannot be solved message. <br>
+In our sample project let us look at the pipe diameters chosen. <br>
+Here we see that for pipe id 2 i.e. the pipe from node 1 to 2 has being assigned a diameter of 90 millimetres. <br>
+In our original input lets fix the diameter for this pipe to 63 mm (goto pipe under network information and set pipe diameter for pipe id 2 to 63) <br>
+Now lets try optimizing this network. <br>
+As somewhat expected we get a network cannot be solved message. <br> 
+This means for this network input no allocation of pipe diameters can satisfy all the demands of the network. <br>
+
+<h5> 4.3.3 PARALLEL PIPES </h5>
+Lets see if we can do something in such a scenario where a pipe has existing diameter that is too small. <br>
+Lets go back to the pipe input panel <br>
+Here for pipe 2 we can tell the system to allow parallel pipes if required. <br>
+Since we already know that a 63 millimetre pipe is not enough the system will try and place a pipe in parallel to satisfy the network. <br>
+Lets try optimizing again.<br>
+This time we were successful. <br>
+Lets go to the pipe results tab to see what happened.<br>
+The system added a 63 millimetre pipe in parallel for pipe id 2. <br>
+The two 63 millimetre pipes in parallel were able to satisfy the network where a single pipe could not. <br>
+Note that the original 63 millimetre pipe does not contribute to the cost since it is an existing pipe. <br>
+
+
+<h3> 5. LOAD/SAVE FILES </h3>
+Now that we have entered so many input details and got the result, we would want to save this information for future use. <br>
+Click on the load/save files option to expand the options. <br>
+
+<h4> 5.1 SAVE INPUT FILE </h4>
+To save the input click on the plus sign next to save input file (click on the + sign next to save input file)<br>
+We can also maximize this option by double clicking. <br>
+From here we can save the input as an xml or excel file. <br>
+Lets choose the excel option and click on the button. <br>
+This opens a standard save dialog box from where we can select the location of our file and change the filename if desired. <br>
+Lets quickly look at the excel file that is generated. <br>
+We can similarly save the output information as an excel file. <br>
+
+<h4> 5.2 LOAD INPUT FILE </h4>
+In the excel file we can see all the information that we had entered earlier. <br>
+To load this file lets goto a fresh session of JalTantra by opening the site in a new tab. <br>
+To load the file maximize the load/save files tab and then maximize the load file option. <br>
+Here we can see the option to load files in three options xml, branch and excel. <br>
+Xml and Excel are the file formats we can save our data in. <br>
+Branch file format is for those network files that were previously used in the Branch software. <br>
+They have the extension .bra <br>
+For now let's load the excel file we just saved. <br>
+Click on load excel file. <br>
+Again we see a warning that any unsaved information will be lost. <br>
+Click ok and we see a typical dialog box for file selection. <br>  
+Choose the file that we just saved and click open. <br>
+Now all the information from the excel file has been loaded into the different screens. <br>
+We can click on the optimize button again and check if we get the same results as before. <br>
+
+<h3> 6. HELP </h3>
+In the end we have the help option. <br>
+Here we can see the units used for various parameters <br>
+<ul>
+<li>	Elevation, Head, Minimum Pressure and Length all use metre </li>
+<li>	Demand is in litres per second </li>
+<li>	and pipe diameters are in millimetres </li>
+</ul>
+We can also download some sample input and output files for reference.<br>
+Just click on any of them to download the file. <br>
+Finally we have the contact info. <br>
+For extra information on JalTantra as well the download link for a local version of JalTantra that can be run from any machine without internet access visit www.cse.iitb.ac.in/jaltantra <br>
+For any queries, suggestions or comments please email hooda.nikhil@gmail.com <br><br>
+
+Thank you for listening and hope you found this tutorial on JalTantra useful.
+
+
+   
